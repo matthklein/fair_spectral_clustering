@@ -1,4 +1,4 @@
-function [clusterLabels] = Fair_SC_normalized(adj,k,sensitive)
+function clusterLabels = Fair_SC_normalized(adj,k,sensitive)
 %implementation of fair normalized SC as stated in Alg. 3 
 %
 %INPUT:
@@ -51,9 +51,9 @@ Msymm=Qinv'*Z'*L*Z*Qinv;
 Msymm=(Msymm+Msymm')/2;
 
 try
-    [Y, eigValues] = eigs(Msymm,k,'smallestabs','MaxIterations',500,'SubspaceDimension',min(n,max(2*k,25)));
+    [Y, eigValues] = eigs(Msymm,k,'smallestabs','MaxIterations',500,'SubspaceDimension',min(size(Msymm,1),max(2*k,25)));
 catch
-    [Y, eigValues] = eigs(Msymm,k,'smallestreal','MaxIterations',1000,'SubspaceDimension',min(n,max(2*k,25)));
+    [Y, eigValues] = eigs(Msymm,k,'smallestreal','MaxIterations',1000,'SubspaceDimension',min(size(Msymm,1),max(2*k,25)));
 end
 
 H = Z*Qinv*Y;

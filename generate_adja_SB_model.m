@@ -1,4 +1,4 @@
-function A =generate_adja_SB_model(n,a,b,c,d,k,h,block_sizes)
+function A=generate_adja_SB_model(n,a,b,c,d,k,h,block_sizes)
 %generates
 %
 %INPUT:

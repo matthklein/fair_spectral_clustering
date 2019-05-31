@@ -44,16 +44,16 @@ for mmm=1:length(perturbation_range)
         
         adja=generate_adja_SB_model(n,a,b,c,d,k,h,block_sizes);
         
-        clustering_SC=SC_unnormalized(adja,k,max_iter);
+        clustering_SC=SC_unnormalized(adja,k);
         error_SC(ell,mmm)=clustering_accuracy(labels,clustering_SC);
         
-        clustering_SC_NORMALIZED=SC_normalized(adja,k,max_iter);
+        clustering_SC_NORMALIZED=SC_normalized(adja,k);
         error_SC_Normalized(ell,mmm)=clustering_accuracy(labels,clustering_SC_NORMALIZED);
         
-        FAIR_clustering_SC=Fair_SC_unnormalized(adja,k,sensitive,max_iter);
+        FAIR_clustering_SC=Fair_SC_unnormalized(adja,k,sensitive);
         error_Fair_SC(ell,mmm)=clustering_accuracy(labels, FAIR_clustering_SC);
         
-        FAIR_clustering_SC_NORMALIZED=Fair_SC_normalized(adja,k,sensitive,max_iter);
+        FAIR_clustering_SC_NORMALIZED=Fair_SC_normalized(adja,k,sensitive);
         error_Fair_SC_Normalized(ell,mmm)=clustering_accuracy(labels,FAIR_clustering_SC_NORMALIZED);
         
     end
@@ -75,7 +75,7 @@ sfname=strcat('_SB_model_as_function_of_perturbation_with_n=',num2str(n),'_k=',n
 %save(strcat('DATA',sfname,'.mat'))
 
 figure(1);clf;
-plot(perturbation_range,mean(error_SC,1),'mo-.',perturbation_range,mean(error_SC_Normalized,1),'go-.',perturbation_range,mean(error_Fair_SC,1),'rx-',perturbation_range,mean(error_Fair_SC_Normalized,1),'bx-')
+plot(perturbation_range,mean(error_SC,1),'mo-.',perturbation_range,mean(error_SC_Normalized,1),'gs-.',perturbation_range,mean(error_Fair_SC,1),'rx-',perturbation_range,mean(error_Fair_SC_Normalized,1),'bx-')
 legend('SC (Alg. 1)','Normalized SC','FAIR SC (Alg. 2)','FAIR Norm. SC (Alg. 3)')
 xlabel('p')
 ylabel('Error')
@@ -132,16 +132,16 @@ for mmm=1:length(perturbation_range)
         
         adja=generate_adja_SB_model(n,a,b,c,d,k,h,block_sizes);
         
-        clustering_SC=SC_unnormalized(adja,k,max_iter);
+        clustering_SC=SC_unnormalized(adja,k);
         error_SC(ell,mmm)=clustering_accuracy(labels,clustering_SC);
         
-        clustering_SC_NORMALIZED=SC_normalized(adja,k,max_iter);
+        clustering_SC_NORMALIZED=SC_normalized(adja,k);
         error_SC_Normalized(ell,mmm)=clustering_accuracy(labels,clustering_SC_NORMALIZED);
         
-        FAIR_clustering_SC=Fair_SC_unnormalized(adja,k,sensitive,max_iter);
+        FAIR_clustering_SC=Fair_SC_unnormalized(adja,k,sensitive);
         error_Fair_SC(ell,mmm)=clustering_accuracy(labels, FAIR_clustering_SC);
         
-        FAIR_clustering_SC_NORMALIZED=Fair_SC_normalized(adja,k,sensitive,max_iter);
+        FAIR_clustering_SC_NORMALIZED=Fair_SC_normalized(adja,k,sensitive);
         error_Fair_SC_Normalized(ell,mmm)=clustering_accuracy(labels,FAIR_clustering_SC_NORMALIZED);
         
     end
@@ -163,7 +163,7 @@ sfname=strcat('_SB_model_as_function_of_perturbation_with_n=',num2str(n),'_k=',n
 %save(strcat('DATA',sfname,'.mat'))
 
 figure(1);clf;
-plot(perturbation_range,mean(error_SC,1),'mo-.',perturbation_range,mean(error_SC_Normalized,1),'go-.',perturbation_range,mean(error_Fair_SC,1),'rx-',perturbation_range,mean(error_Fair_SC_Normalized,1),'bx-')
+plot(perturbation_range,mean(error_SC,1),'mo-.',perturbation_range,mean(error_SC_Normalized,1),'gs-.',perturbation_range,mean(error_Fair_SC,1),'rx-',perturbation_range,mean(error_Fair_SC_Normalized,1),'bx-')
 legend('SC (Alg. 1)','Normalized SC','FAIR SC (Alg. 2)','FAIR Norm. SC (Alg. 3)')
 xlabel('p')
 ylabel('Error')

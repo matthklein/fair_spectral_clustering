@@ -1,4 +1,4 @@
-function [clusterLabels] = SC_normalized(adj,k)
+function clusterLabels = SC_normalized(adj,k)
 %implementation of normalized SC as described in Appendix A 
 %
 %INPUT:

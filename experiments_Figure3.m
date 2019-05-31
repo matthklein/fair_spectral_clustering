@@ -76,13 +76,11 @@ for hg=2:length(factor_range)
     plot(k_range,mean(error_Fair_SC(:,:,hg),1),'Marker','x','DisplayName',strcat('F=',num2str(factor_range(hg))))
 end  
 hold off
-
 legend
 xlabel('k')
 ylabel('Error')
 ylim([0,1])
 title(strcat('FAIR SC (Alg. 2) --- n~',num2str(n_app),', h=',num2str(h)),'FontWeight','normal')
-
 saveas(1,strcat('Error',sfname))
 print(1,'-dpdf',strcat('Error',sfname))
 
@@ -155,19 +153,17 @@ sfname=strcat('_SB_model_as_function_of_k_with_n~',num2str(n_app),'_h=',num2str(
 %save(strcat('DATA',sfname,'.mat'))
 
 figure(1);clf;
-plot(k_range,mean(error_Fair_SC(:,:,1),1),'Marker','x','DisplayName',strcat('F=',num2str(factor_range(1))))
+plot(k_range,mean(error_Fair_SC_Normalized(:,:,1),1),'Marker','x','DisplayName',strcat('F=',num2str(factor_range(1))))
 hold on
 for hg=2:length(factor_range)
-    plot(k_range,mean(error_Fair_SC(:,:,hg),1),'Marker','x','DisplayName',strcat('F=',num2str(factor_range(hg))))
+    plot(k_range,mean(error_Fair_SC_Normalized(:,:,hg),1),'Marker','x','DisplayName',strcat('F=',num2str(factor_range(hg))))
 end  
 hold off
-
 legend
 xlabel('k')
 ylabel('Error')
 ylim([0,1])
 title(strcat('FAIR Norm. SC (Alg. 3) --- n~',num2str(n_app),', h=',num2str(h)),'FontWeight','normal')
-
 saveas(1,strcat('Error',sfname))
 print(1,'-dpdf',strcat('Error',sfname))
 
